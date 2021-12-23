@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<head></head>
+<title></title>
+<body>
+    <div class="parent price">
+        <div class="price">
+            <p style="text-align: center;"><lable>
+                Enter ammount: <small>(in doller)</small>
+            <input type="text" name = "inp1" placeholder="$ " id="demo"></input></p>
+        </lable>
+    </div>
+</div>
+<div class="tax">
+    <p style="text-align: center;">
+        <label>Enter Tax amount in doller :
+            <input type="text" name = "inp2" placeholder = "$ " id ="demo2"></input>
+        </label>
+    </p>
+</div>
+<div>
+    <p style="text-align: center;">
+        <input type="button" name="detail" value="Show details" onclick="detailsFunction()"></input>
+    </p>
+    <h3><p style="text-align: center;" id="details"></p></h3>
+</div>
+<div>
+    <p style="text-align: center;">
+    <input type="button" name = "sub" value = "Tax calculate" onclick="myFunction()"></input>
+    </p><hr>
+    <h1><p style="text-align: center;" id = "calculation"></p></h1>
+    <hr>
+    <h3><p style="text-align: center;" id="demo4"></p></h3><br><br><br><hr>
+    <h2><p style="text-align: center;" id = "remaining"></p></h2>
+
+    <script>
+        function detailsFunction(){
+            let x,y;
+            x = document.getElementById("demo").value;
+            y = document.getElementById("demo2").value;
+            document.getElementById("details").innerHTML = "You Enter $ " +x+ " as amount and $ "+y+" as tax.";            
+        }
+        const myArray = [];
+        function myFunction(){
+        let x,y,a,b,n,j;
+        x = document.getElementById("demo").value;
+        y = document.getElementById("demo2").value;
+        a = x.match(/\d+/g);
+        b = y.match(/\d+/g);
+        n = a[0]-b[0];
+        document.getElementById("calculation").innerHTML = n;
+        document.getElementById("remaining").innerHTML = "You have " +(6-myArray.length)+" try remaining.";
+        if(myArray.length < 6){
+            myArray.push(n);
+        }      
+        else{       
+        document.getElementById("demo4").innerHTML = "Your limit is over now your last result is " +myArray.join(" , ");
+
+        }
+        //console.log(myArray)
+     }
+    </script>  
+</body>
+</html>
